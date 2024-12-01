@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>TeLlevoAPP</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="button-container">
+    <ion-button (click)="getCurrentLocation()" expand="block" class="custom-button">Ubicación Actual</ion-button> <!-- Botón de ubicación -->
+    <ion-button (click)="goToCreateRide()" expand="block" class="custom-button">Crear Viaje</ion-button>
+    <ion-button (click)="Obtenervehiculos()">Obtener Vehículos</ion-button>
+    <ion-button (click)="goToAddVehicle()">Agregar Vehículo</ion-button>
+  </div>
+  <ion-label>Buscar Dirección</ion-label>
+  <input #searchBox id="search-box" type="text" placeholder="Busca un lugar" (input)="onInput()">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs3njaGnyZ1ftTsu_ezdLixZzzMW2-rsA&libraries=places" async defer></script>
+  <div id="map-container">
+    <google-map
+      width="100%"
+      height="100%"
+      [center]="center"
+      [zoom]="zoom">
+    </google-map>
+  </div>
+
+  
+</ion-content>
